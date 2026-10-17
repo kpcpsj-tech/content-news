@@ -1,8 +1,18 @@
 {
- "collectedAt": "2026-10-17 12:27",
+ "collectedAt": "2026-10-17 13:23",
  "articles": [
   {
    "id": 1,
+   "cat": "music",
+   "country": "us",
+   "date": "2026-10-11",
+   "outlet": "Mashable",
+   "title": "Target’s new KPop Demon Hunters collab brings HUNTRI/X to your desk — everything costs just $20",
+   "url": "https://mashable.com/life/target-heyday-kpop-demon-hunters-tech-collection-launch-where-to-buy",
+   "image": "https://helios-i.mashable.com/imagery/articles/05kgfPqob4wkReWAoxnG7cI/hero-image.fill.size_1200x675.v1791534352.png"
+  },
+  {
+   "id": 2,
    "cat": "drama",
    "country": "jp",
    "date": "2026-10-11",
@@ -12,7 +22,47 @@
    "image": "https://thetv.jp/i/nw/1447866/18782558.jpg?w=1284"
   },
   {
-   "id": 2,
+   "id": 3,
+   "cat": "music",
+   "country": "us",
+   "date": "2026-10-12",
+   "outlet": "Deadline on MSN",
+   "title": "K-Pop Stars Key To Success Of A+E Global Media In Korea, Says Vien",
+   "url": "https://www.msn.com/en-us/news/other/k-pop-stars-key-to-success-of-a-e-global-media-in-korea-says-vien/ar-AA2e3aII",
+   "image": "https://www.bing.com/th?id=ONUT.kdKy3UU2Ng_iFsE589o41w&pid=News"
+  },
+  {
+   "id": 4,
+   "cat": "music",
+   "country": "us",
+   "date": "2026-10-12",
+   "outlet": "Soompi",
+   "title": "Soompi's K-Pop Music Chart 2026, October Week 2",
+   "url": "https://www.soompi.com/article/1877265wpp/soompis-k-pop-music-chart-2026-october-week-2",
+   "image": "https://0.soompi.io/wp-content/uploads/2026/10/12013727/music-chart.jpg"
+  },
+  {
+   "id": 5,
+   "cat": "music",
+   "country": "us",
+   "date": "2026-10-13",
+   "outlet": "The Chosun Ilbo on MSN",
+   "title": "Exclusive: Baemin expands K-pop collaborations with album preorders, merchandise",
+   "url": "https://www.msn.com/en-xl/entertainment/music/exclusive-baemin-expands-k-pop-collaborations-with-album-preorders-merchandise/ar-AA2e6PAh",
+   "image": "https://www.bing.com/th?id=ONUT.k-q0FnVTqAIuzibCVLRi7A&pid=News"
+  },
+  {
+   "id": 6,
+   "cat": "drama",
+   "country": "jp",
+   "date": "2026-10-13",
+   "outlet": "ORICON NEWS",
+   "title": "韓国ドラマ『ハートにチャージして』登場人物・キャスト一覧",
+   "url": "https://www.oricon.co.jp/drama/1299/cast/",
+   "image": "https://contents.oricon.co.jp/drama/img/1000/1299/credit/img1200/tv-program-image-0bb7000bf746306197062dd747b13b5095ace12647abe99f80e13ec3c34d54a2.jpg"
+  },
+  {
+   "id": 7,
    "cat": "drama",
    "country": "jp",
    "date": "2026-10-13",
@@ -22,7 +72,7 @@
    "image": "https://www.sankei.com/resizer/v2/https%3A%2F%2Fdpgdieoe6npux.cloudfront.net%2Fprtimes%2FGP4QGMR6QZJQ5L424XMJNGCM2E?auth=f17a7cc287b4b64ff524567822cf2e9055abf213bcb880cef998598f94f34578&quality=50&smart=true&width=1200&height=675"
   },
   {
-   "id": 3,
+   "id": 8,
    "cat": "music",
    "country": "cn",
    "date": "2026-10-13",
@@ -32,7 +82,7 @@
    "image": "https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/t3/2026/10/13/35416236.jpg&M=1&s=Y&x=0&y=0&sw=1280&sh=853&sl=W&fw=800&exp=3600"
   },
   {
-   "id": 4,
+   "id": 9,
    "cat": "music",
    "country": "cn",
    "date": "2026-10-13",
@@ -42,7 +92,7 @@
    "image": "https://news-images.tvbs.com.tw/api/v1/image/01a13454-6d68-7319-a3f1-97b955da15fd.jpg?t=16x9&c=0,81,1400,869&w=1200&h=675"
   },
   {
-   "id": 5,
+   "id": 10,
    "cat": "music",
    "country": "us",
    "date": "2026-10-13",
@@ -52,7 +102,7 @@
    "image": "https://www.bing.com/th?id=ONUT.D_QcjRKWxkhI91BagapZPg&pid=News"
   },
   {
-   "id": 6,
+   "id": 11,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-14",
@@ -62,7 +112,7 @@
    "image": "https://www.bing.com/th?id=ONUT.HZyFvgMOGJyCi6aWFUl13Q&pid=News"
   },
   {
-   "id": 7,
+   "id": 12,
    "cat": "music",
    "country": "cn",
    "date": "2026-10-14",
@@ -72,7 +122,7 @@
    "image": "https://bellawebsite.s3.ap-northeast-1.amazonaws.com/ogimage/b6c26152-c7a9-11f1-a84e-067e1fddedd8.webp"
   },
   {
-   "id": 8,
+   "id": 13,
    "cat": "drama",
    "country": "jp",
    "date": "2026-10-14",
@@ -82,7 +132,7 @@
    "image": "https://contents.oricon.co.jp/pc/img/_parts/common/logo-oricon05.png"
   },
   {
-   "id": 9,
+   "id": 14,
    "cat": "music",
    "country": "cn",
    "date": "2026-10-14",
@@ -92,7 +142,7 @@
    "image": "https://media.nownews.com/nn_media/thumbnail/2026/10/1791942065855-336392e21c7c40fd937b74cb443466f4-1159x727.webp?unShow=false"
   },
   {
-   "id": 10,
+   "id": 15,
    "cat": "music",
    "country": "cn",
    "date": "2026-10-14",
@@ -102,7 +152,7 @@
    "image": "https://media.vogue.com.tw/photos/6acf596bd3eeeebf2108c29c/16:9/w_1280,c_limit/IMG_6733.jpg"
   },
   {
-   "id": 11,
+   "id": 16,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-14",
@@ -112,17 +162,17 @@
    "image": "https://images.moneycontrol.com/static-mcnews/2026/10/20261014115221_kdkd.jpg"
   },
   {
-   "id": 12,
-   "cat": "music",
+   "id": 17,
+   "cat": "drama",
    "country": "us",
    "date": "2026-10-14",
-   "outlet": "ABS-CBN",
-   "title": "Meet A2O LITE, A2O SOUL: K-pop 'architect' unveils new groups",
-   "url": "https://www.abs-cbn.com/entertainment/showbiz/music/2026/10/14/meet-a2o-lite-a2o-soul-k-pop-architect-unveils-new-groups-1325",
-   "image": "https://od2-image-api.abs-cbn.com/prod/20261014061016/a6f8586610cd03ca003d9e3e4ee5f3df0c559157ce2ddb001ce122bb34af411b.jpg?w=1200&h=800"
+   "outlet": "NDTV on MSN",
+   "title": "Fantastic show: Kiran Rao wants to remake K-drama Reply 1988 for Indian audiences",
+   "url": "https://www.msn.com/en-in/news/other/fantastic-show-kiran-rao-wants-to-remake-k-drama-reply-1988-for-indian-audiences/ar-AA2edQVQ",
+   "image": "https://www.bing.com/th?id=ONUT.dM77XPOWaS5l3JmP-1LkiQ&pid=News"
   },
   {
-   "id": 13,
+   "id": 18,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-14",
@@ -132,17 +182,17 @@
    "image": "https://www.bing.com/th?id=ONUT.GxFrvYpHmV8RhZLtawUGlA&pid=News"
   },
   {
-   "id": 14,
+   "id": 19,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-15",
    "outlet": "Screen Rant on MSN",
    "title": "Forget Squid Game, Netflix is officially entering a new K-drama era",
-   "url": "https://www.msn.com/en-us/news/other/forget-squid-game-netflix-is-officially-entering-a-new-k-drama-era/ar-AA2eisBq",
+   "url": "https://www.msn.com/en-us/entertainment/tv/forget-squid-game-netflix-is-officially-entering-a-new-k-drama-era/ar-AA2eisBq",
    "image": "https://www.bing.com/th?id=ONUT.mGWs9dlv7mIB7i8YP7Io2A&pid=News"
   },
   {
-   "id": 15,
+   "id": 20,
    "cat": "music",
    "country": "jp",
    "date": "2026-10-15",
@@ -152,7 +202,7 @@
    "image": "https://danmee.jp/wp-content/uploads/2026/10/Sugar.jpg"
   },
   {
-   "id": 16,
+   "id": 21,
    "cat": "music",
    "country": "cn",
    "date": "2026-10-15",
@@ -162,17 +212,17 @@
    "image": "https://s.yimg.com/lo/mysterio/api/9af66e5a5df95f50e8fdf396b9f363d73d739bc9cfcf64d4320b87064fdede98/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fko%2F__647%2Ffa83cdf8c729773c64c2f064d6cecd34"
   },
   {
-   "id": 17,
+   "id": 22,
    "cat": "drama",
    "country": "sea",
    "date": "2026-10-15",
    "outlet": "ABS-CBN on MSN",
    "title": "Le Sserafim share K-drama recommendations",
-   "url": "https://www.msn.com/en-ph/entertainment/tv/le-sserafim-share-k-drama-recommendations/ar-AA2eh7ax",
+   "url": "https://www.msn.com/en-ph/entertainment/celebrities/le-sserafim-share-k-drama-recommendations/ar-AA2eh7ax",
    "image": "https://www.bing.com/th?id=ONUT.E-fX49l_lMj0CK_z3elELA&pid=News"
   },
   {
-   "id": 18,
+   "id": 23,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-15",
@@ -182,7 +232,7 @@
    "image": "https://www.bing.com/th?id=ONUT.6z2XxM03DVjofCEuUXAcWQ&pid=News"
   },
   {
-   "id": 19,
+   "id": 24,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-15",
@@ -192,17 +242,7 @@
    "image": "https://www.bing.com/th?id=ONUT.ILqvtcPurX0g_mvCNJvskA&pid=News"
   },
   {
-   "id": 20,
-   "cat": "drama",
-   "country": "sea",
-   "date": "2026-10-15",
-   "outlet": "Báo Mới",
-   "title": "Top 5 bộ phim Hàn Quốc đề tài siêu nhiên đáng xem nhất",
-   "url": "https://baomoi.com/top-5-bo-phim-han-quoc-de-tai-sieu-nhien-dang-xem-nhat-c56276605.epi",
-   "image": "https://baomoi-photo-fbcrawler.bmcdn.me/w1200_r16x9/2026_10_15_329_56276605/332c5202ff4916174f58.jpg"
-  },
-  {
-   "id": 21,
+   "id": 25,
    "cat": "drama",
    "country": "jp",
    "date": "2026-10-15",
@@ -212,7 +252,7 @@
    "image": "https://www.cinemacafe.net/release/imgs/list/161591.jpg"
   },
   {
-   "id": 22,
+   "id": 26,
    "cat": "drama",
    "country": "sea",
    "date": "2026-10-15",
@@ -222,17 +262,7 @@
    "image": "https://kenh14cdn.com/thumb_w/1200/203336854389633024/2026/10/15/cats-17920367389481041701180.jpg"
   },
   {
-   "id": 23,
-   "cat": "music",
-   "country": "us",
-   "date": "2026-10-15",
-   "outlet": "License Global",
-   "title": "'KPop Demon Hunters' Is Coming to Toca Boca World",
-   "url": "https://www.licenseglobal.com/entertainment/-kpop-demon-hunters-is-coming-to-toca-boca-world",
-   "image": "https://www.bing.com/th?id=ONUT.fvQPui9yu2gW5nqGOTz7jQ&pid=News"
-  },
-  {
-   "id": 24,
+   "id": 27,
    "cat": "music",
    "country": "us",
    "date": "2026-10-15",
@@ -242,17 +272,17 @@
    "image": "https://www.bing.com/th?id=ONUT.kP6OSdVTvojkCLMWWnAmTA&pid=News"
   },
   {
-   "id": 25,
-   "cat": "music",
-   "country": "us",
+   "id": 28,
+   "cat": "drama",
+   "country": "sea",
    "date": "2026-10-15",
-   "outlet": "Complex on MSN",
-   "title": "The history of K-pop sneaker collaborations",
-   "url": "https://www.msn.com/en-us/entertainment/music/the-history-of-k-pop-sneaker-collaborations/ar-AA2ejHYf",
-   "image": "https://www.bing.com/th?id=ONUT.pwyL_haMj3DLeQuDELYqjg&pid=News"
+   "outlet": "Saostar",
+   "title": "Top 5 bộ phim Hàn Quốc đề tài siêu nhiên đáng xem nhất",
+   "url": "https://www.saostar.vn/dien-anh/top-5-bo-phim-han-quoc-de-tai-sieu-nhien-dang-xem-nhat-202610151614359813.html",
+   "image": "https://ss-images.saostar.vn/w1200/2026/10/15/pc/1791950303640/9e946c18-a8e5-49e1-8050-10b9a2f7fa86.jpg"
   },
   {
-   "id": 26,
+   "id": 29,
    "cat": "drama",
    "country": "sea",
    "date": "2026-10-15",
@@ -262,7 +292,7 @@
    "image": "https://cassette.sphdigital.com.sg/image/straitstimes/5f70fee31f254b4cc66109bda629e52a0a94ecf3b615b252a6a366bfef6403eb?w=1200"
   },
   {
-   "id": 27,
+   "id": 30,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-16",
@@ -272,7 +302,7 @@
    "image": "https://www.mpweekly.com/entertainment/wp-content/uploads/2026/10/etl032-20261014173427.png?v=1791970468"
   },
   {
-   "id": 28,
+   "id": 31,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-16",
@@ -282,7 +312,7 @@
    "image": "https://drs-beauty.com/wp-content/uploads/2026/10/ca4fe459-703d-4651-81e9-78d944e8796d.png"
   },
   {
-   "id": 29,
+   "id": 32,
    "cat": "music",
    "country": "jp",
    "date": "2026-10-16",
@@ -292,7 +322,7 @@
    "image": "https://danmee.jp/wp-content/uploads/2026/10/kpopjotaidol2027.png"
   },
   {
-   "id": 30,
+   "id": 33,
    "cat": "music",
    "country": "jp",
    "date": "2026-10-16",
@@ -302,7 +332,7 @@
    "image": "https://danmee.jp/wp-content/uploads/2026/10/KPOPJPGIRL2610.png"
   },
   {
-   "id": 31,
+   "id": 34,
    "cat": "music",
    "country": "sea",
    "date": "2026-10-16",
@@ -312,17 +342,7 @@
    "image": "https://data.ibtimes.sg/en/full/98144/hybe.jpg?w=1200&h=630?q=60"
   },
   {
-   "id": 32,
-   "cat": "drama",
-   "country": "jp",
-   "date": "2026-10-16",
-   "outlet": "Yahoo!ニュース",
-   "title": "【韓国ドラマ】Netflix『100日の嘘』GOT7パク・ジニョン＆キム・ユ ...",
-   "url": "https://news.yahoo.co.jp/articles/b9a861d7a07fe68071d6f32c24c654312bd760f2",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261016-00088534-ktvguide-000-1-view.jpg?exp=10800"
-  },
-  {
-   "id": 33,
+   "id": 35,
    "cat": "music",
    "country": "jp",
    "date": "2026-10-16",
@@ -332,17 +352,7 @@
    "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261016-00080068-chosun-000-6-view.jpg?exp=10800"
   },
   {
-   "id": 34,
-   "cat": "music",
-   "country": "us",
-   "date": "2026-10-16",
-   "outlet": "CNBC on MSN",
-   "title": "Hybe shares jump 10% as K-pop sensation BTS' tour lifts earnings hopes",
-   "url": "https://www.msn.com/en-us/money/markets/hybe-shares-jump-10-as-k-pop-sensation-bts-tour-lifts-earnings-hopes/ar-AA2eleWX",
-   "image": "https://www.bing.com/th?id=ONUT.5YfZ_sphVGY3aNcTaaqS9A&pid=News"
-  },
-  {
-   "id": 35,
+   "id": 36,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-16",
@@ -352,17 +362,17 @@
    "image": "https://www.bing.com/th?id=ONUT.y3STlS7Tb-LGPhwV7k_H_Q&pid=News"
   },
   {
-   "id": 36,
+   "id": 37,
    "cat": "music",
-   "country": "us",
+   "country": "sea",
    "date": "2026-10-16",
    "outlet": "GMA Network on MSN",
    "title": "BTS, SEVENTEEN, other K-pop groups feature at 'Vision Festa: Dive Into the Stars' GMAHOAAccess",
-   "url": "https://www.msn.com/en-ph/entertainment/music/bts-seventeen-other-k-pop-groups-feature-at-vision-festa-dive-into-the-stars-gmahoaaccess/ar-AA2emmfk",
+   "url": "https://www.msn.com/en-ph/news/other/bts-seventeen-other-k-pop-groups-feature-at-vision-festa-dive-into-the-stars-gmahoaaccess/ar-AA2emmfk",
    "image": "https://www.bing.com/th?id=ONUT.jJlu3suW-INtrnSMxt4nSQ&pid=News"
   },
   {
-   "id": 37,
+   "id": 38,
    "cat": "drama",
    "country": "jp",
    "date": "2026-10-16",
@@ -372,7 +382,7 @@
    "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261016-00088537-ktvguide-000-1-view.jpg?exp=10800"
   },
   {
-   "id": 38,
+   "id": 39,
    "cat": "music",
    "country": "jp",
    "date": "2026-10-16",
@@ -382,17 +392,17 @@
    "image": "https://money1.jp/wp-content/uploads/2026/10/sozai_20374_img.jpg"
   },
   {
-   "id": 39,
+   "id": 40,
    "cat": "drama",
    "country": "kr",
    "date": "2026-10-16",
-   "outlet": "비즈니스포스트 on MSN",
-   "title": "스튜디오드래곤 닥터X 넷플릭스 글로벌 1위 올라, 10번째 선두 배출",
-   "url": "https://www.msn.com/ko-kr/entertainment/%EC%9D%BC%EB%B0%98/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%93%9C%EB%9E%98%EA%B3%A4-%EB%8B%A5%ED%84%B0x-%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4-%EA%B8%80%EB%A1%9C%EB%B2%8C-1%EC%9C%84-%EC%98%AC%EB%9D%BC-10%EB%B2%88%EC%A7%B8-%EC%84%A0%EB%91%90-%EB%B0%B0%EC%B6%9C/ar-AA2emsy8",
-   "image": "https://www.bing.com/th?id=ONUT.OFLYbCT3QijORlFmyeXXjQ&pid=News"
+   "outlet": "연합뉴스 on MSN",
+   "title": "[방송소식] 스튜디오드래곤, 넷플릭스 글로벌 1위 10편 배출",
+   "url": "https://www.msn.com/ko-kr/entertainment/%EC%9C%A0%EB%AA%85-%EC%9D%B8%EC%82%AC/%EB%B0%A9%EC%86%A1%EC%86%8C%EC%8B%9D-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%93%9C%EB%9E%98%EA%B3%A4-%EB%84%B7%ED%94%8C%EB%A6%AD%EC%8A%A4-%EA%B8%80%EB%A1%9C%EB%B2%8C-1%EC%9C%84-10%ED%8E%B8-%EB%B0%B0%EC%B6%9C/ar-AA2emC2K",
+   "image": "https://www.bing.com/th?id=ONUT.y9DNyEKHmUtXfMcNHutUWw&pid=News"
   },
   {
-   "id": 40,
+   "id": 41,
    "cat": "drama",
    "country": "jp",
    "date": "2026-10-16",
@@ -402,7 +412,7 @@
    "image": "https://contents.oricon.co.jp/upimg/news/2486000/2485522/20261007_144631_p_o_60149437.jpg"
   },
   {
-   "id": 41,
+   "id": 42,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-16",
@@ -412,7 +422,7 @@
    "image": "https://icrvb3jy2.xinmedia.com/solomo/article/306578/f93ad8e9-896a-4483-8f8c-9ddd9bff002c.jpg"
   },
   {
-   "id": 42,
+   "id": 43,
    "cat": "drama",
    "country": "kr",
    "date": "2026-10-16",
@@ -422,23 +432,13 @@
    "image": "https://cdn.pinpointnews.co.kr/news/thumbnail/202610/495840_481358_3233_v150.jpg"
   },
   {
-   "id": 43,
-   "cat": "drama",
-   "country": "us",
-   "date": "2026-10-16",
-   "outlet": "What's on Netflix",
-   "title": "SBS K-Dramas ‘Temperature of Love’ and ‘Remember’ Coming to Netflix in October 2026",
-   "url": "https://www.whats-on-netflix.com/news/k-dramas-temperature-of-love-remember-coming-netflix-october-2026/",
-   "image": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/remember-and-temperature-of-love-k-dramas-coming-to-netflix-in-october-2026.jpg"
-  },
-  {
    "id": 44,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-16",
    "outlet": "BEAUTY美人圈 on MSN",
    "title": "沒《Doctor X》紅但好看10部Netflix韓劇! 金裕貞《百日謊言》好評，第3部從頭精采到尾",
-   "url": "https://www.msn.com/zh-tw/entertainment/tv/%E6%B2%92-doctor-x-%E7%B4%85%E4%BD%86%E5%A5%BD%E7%9C%8B10%E9%83%A8netflix%E9%9F%93%E5%8A%87-%E9%87%91%E8%A3%95%E8%B2%9E-%E7%99%BE%E6%97%A5%E8%AC%8A%E8%A8%80-%E5%A5%BD%E8%A9%95-%E7%AC%AC3%E9%83%A8%E5%BE%9E%E9%A0%AD%E7%B2%BE%E9%87%87%E5%88%B0%E5%B0%BE/ar-AA2emXeC",
+   "url": "https://www.msn.com/zh-tw/lifestyle/other/%E6%B2%92-doctor-x-%E7%B4%85%E4%BD%86%E5%A5%BD%E7%9C%8B10%E9%83%A8netflix%E9%9F%93%E5%8A%87-%E9%87%91%E8%A3%95%E8%B2%9E-%E7%99%BE%E6%97%A5%E8%AC%8A%E8%A8%80-%E5%A5%BD%E8%A9%95-%E7%AC%AC3%E9%83%A8%E5%BE%9E%E9%A0%AD%E7%B2%BE%E9%87%87%E5%88%B0%E5%B0%BE/ar-AA2emXeC",
    "image": "https://www.bing.com/th?id=ONUT.P_geae4RVCsgHkG6RFrclg&pid=News"
   },
   {
@@ -473,6 +473,16 @@
   },
   {
    "id": 48,
+   "cat": "music",
+   "country": "us",
+   "date": "2026-10-16",
+   "outlet": "San Francisco Chronicle on MSN",
+   "title": "Hybe Cine Fest 2026 brings BTS and other K-pop concerts to theaters",
+   "url": "https://www.msn.com/en-us/entertainment/music/hybe-cine-fest-2026-brings-bts-and-other-k-pop-concerts-to-theaters/ar-AA2eo4tb",
+   "image": "https://www.bing.com/th?id=ONUT.L0wl7cK22v1D7yVw9M9cxw&pid=News"
+  },
+  {
+   "id": 49,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-16",
@@ -482,7 +492,7 @@
    "image": "https://dam.mediacorp.sg/image/upload/s--bogM6-G_--/c_crop,h_675,w_1200,x_0,y_1/c_fill,g_auto,h_676,w_1200/f_auto,q_auto/v1/mediacorp/cna/image/2026/10/16/doctor_x_kim_ji-won.jpg?itok=HMYmG82t"
   },
   {
-   "id": 49,
+   "id": 50,
    "cat": "music",
    "country": "sea",
    "date": "2026-10-16",
@@ -492,7 +502,7 @@
    "image": "https://ss-images.saostar.vn/w1200/2026/10/13/pc/1791875672435/j3iamy4mnp1-mnefb7ax7g2-ju8trs9uo13.jpg"
   },
   {
-   "id": 50,
+   "id": 51,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-16",
@@ -500,16 +510,6 @@
    "title": "不只《Doctor X》好看！口碑最強「日劇改編韓劇」TOP10冠軍是它：評價力壓《那年冬天，風在吹》、一追停不下來",
    "url": "https://www.storm.mg/lifestyle/11172594",
    "image": "https://images.storm.mg/cloud/5d198b3b8a4879cab419d2f253b58931dfe691e0.jpg?url=s3%3A%2F%2Fnew-storm-public-resource%2Fgallery%2F2232668%2FiRTrrq2NLjWDKcnADLlvo7Ho82ALIjcEePQRwSMI.jpg&g=sm&h=900&resize=fill&w=1600&format=jpg"
-  },
-  {
-   "id": 51,
-   "cat": "music",
-   "country": "sea",
-   "date": "2026-10-16",
-   "outlet": "The Hollywood Reporter",
-   "title": "K-pop Entertainment Company Hello82 Aims to Plant a Flag in Festival Market with Inaugural 82World",
-   "url": "https://www.hollywoodreporter.com/music/music-features/hello82-kpop-festival-82-world-ateez-p1harmony-1236733943/",
-   "image": "https://www.hollywoodreporter.com/wp-content/uploads/2026/10/82world.png?w=1296&h=730&crop=1"
   },
   {
    "id": 52,
@@ -546,23 +546,13 @@
    "cat": "drama",
    "country": "kr",
    "date": "2026-10-16",
-   "outlet": "연합뉴스",
-   "title": "[방송소식] 스튜디오드래곤, 넷플릭스 글로벌 1위 10편 배출",
-   "url": "https://www.yna.co.kr/view/AKR20261016149400005",
-   "image": "https://img1.yna.co.kr/etc/inner/KR/2026/10/16/AKR20261016149400005_01_i_P4.jpg"
-  },
-  {
-   "id": 56,
-   "cat": "drama",
-   "country": "kr",
-   "date": "2026-10-16",
    "outlet": "지디넷코리아",
    "title": "OTT 모아, 중국 드라마 '옥점추' 21일 독점 공개",
    "url": "https://zdnet.co.kr/view/?no=20261016163536",
    "image": "https://image.zdnet.co.kr/2026/10/16/366848d9e907c7ea9ef2eaa0573118bc.png"
   },
   {
-   "id": 57,
+   "id": 56,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-16",
@@ -572,7 +562,7 @@
    "image": "https://www.segye.com/content/image/2026/10/17/20261017503723.jpg"
   },
   {
-   "id": 58,
+   "id": 57,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-16",
@@ -582,7 +572,7 @@
    "image": "https://www.koreadaily.com/data/photo/thumbnail/2026/10/17/c74e12fe-0ec8-4c1f-b65b-420ef1f8239e.jpg"
   },
   {
-   "id": 59,
+   "id": 58,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-16",
@@ -592,7 +582,7 @@
    "image": "https://img.hankyung.com/photo/202610/AD.46066478.1.png"
   },
   {
-   "id": 60,
+   "id": 59,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-16",
@@ -602,7 +592,7 @@
    "image": "https://cdn.slist.kr/news/thumbnail/202610/774136_1183860_4348_v150.jpg"
   },
   {
-   "id": 61,
+   "id": 60,
    "cat": "drama",
    "country": "sea",
    "date": "2026-10-16",
@@ -612,7 +602,7 @@
    "image": "https://www.bing.com/th?id=ONUT.TwOSDlkf6n3aCRtB_cV3iA&pid=News"
   },
   {
-   "id": 62,
+   "id": 61,
    "cat": "drama",
    "country": "us",
    "date": "2026-10-16",
@@ -622,7 +612,7 @@
    "image": "https://www.bing.com/th?id=ONUT.cqzX8_1AZ5Khr3nXbC7aMg&pid=News"
   },
   {
-   "id": 63,
+   "id": 62,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-16",
@@ -632,7 +622,7 @@
    "image": "https://cdn.mediaus.co.kr/news/thumbnail/202610/318512_233764_4048_v150.jpg"
   },
   {
-   "id": 64,
+   "id": 63,
    "cat": "music",
    "country": "sea",
    "date": "2026-10-16",
@@ -642,7 +632,7 @@
    "image": "https://newsimg.koreatimes.co.kr/2026/10/16/da1f1a93-3e94-4a8e-928e-f393d9e112e9.jpg"
   },
   {
-   "id": 65,
+   "id": 64,
    "cat": "drama",
    "country": "kr",
    "date": "2026-10-16",
@@ -652,7 +642,7 @@
    "image": "https://cdnweb01.wikitree.co.kr/webdata/editor/202610/12/202610121523308133.jpg"
   },
   {
-   "id": 66,
+   "id": 65,
    "cat": "music",
    "country": "sea",
    "date": "2026-10-16",
@@ -662,7 +652,7 @@
    "image": "https://images.filmibeat.com/img/2026/10/feature-2026-10-16t202014-549-48461792162218.jpg"
   },
   {
-   "id": 67,
+   "id": 66,
    "cat": "drama",
    "country": "sea",
    "date": "2026-10-16",
@@ -672,7 +662,7 @@
    "image": "https://ss-images.saostar.vn/w1200/2026/10/6/pc/1791256443128/exitc0c6vh1-lxzvcu38jp2-ln9dte6qis3.jpg"
   },
   {
-   "id": 68,
+   "id": 67,
    "cat": "drama",
    "country": "kr",
    "date": "2026-10-16",
@@ -682,7 +672,7 @@
    "image": "https://www.bing.com/th?id=ONUT.ERHPje8ii09z8EIeOsOkmw&pid=News"
   },
   {
-   "id": 69,
+   "id": 68,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-16",
@@ -692,7 +682,7 @@
    "image": "https://cdn.www.cineplay.co.kr/w1200/q100/f_jpg/article-images/2025-10-22/9c024f52-b851-4512-bc01-e5394e63e522.jpg"
   },
   {
-   "id": 70,
+   "id": 69,
    "cat": "drama",
    "country": "kr",
    "date": "2026-10-16",
@@ -702,7 +692,7 @@
    "image": "https://cdn.kyongbuk.co.kr/news/photo/202610/4087465_825529_4551.png"
   },
   {
-   "id": 71,
+   "id": 70,
    "cat": "music",
    "country": "us",
    "date": "2026-10-17",
@@ -710,6 +700,16 @@
    "title": "Hello82 founder on inaugural K-pop festival 82World featuring ATEEZ",
    "url": "https://www.msn.com/en-us/news/other/hello82-founder-on-inaugural-k-pop-festival-82world-featuring-ateez/ar-AA2epxpK",
    "image": "https://www.bing.com/th?id=ONUT.ptYruholD9Pdf-6THIPyIA&pid=News"
+  },
+  {
+   "id": 71,
+   "cat": "drama",
+   "country": "kr",
+   "date": "2026-10-17",
+   "outlet": "위키트리",
+   "title": "2회 만에 14.9% 찍었지만…의료 고증 논란 휩싸인 한국 드라마",
+   "url": "https://www.wikitree.co.kr/articles/1166969",
+   "image": "https://cdnweb01.wikitree.co.kr/webdata/editor/202610/17/202610171241321237_ent_ig.jpeg"
   },
   {
    "id": 72,
@@ -754,25 +754,15 @@
   {
    "id": 76,
    "cat": "music",
-   "country": "cn",
-   "date": "2026-10-17",
-   "outlet": "風傳媒 on MSN",
-   "title": "北京觀察》韓流重返中國?GD權志龍聯名麥當勞廣告滿街跑，K-pop背後隱藏的商業玄機",
-   "url": "https://www.msn.com/zh-tw/news/national/%E5%8C%97%E4%BA%AC%E8%A7%80%E5%AF%9F-%E9%9F%93%E6%B5%81%E9%87%8D%E8%BF%94%E4%B8%AD%E5%9C%8B-gd%E6%AC%8A%E5%BF%97%E9%BE%8D%E8%81%AF%E5%90%8D%E9%BA%A5%E7%95%B6%E5%8B%9E%E5%BB%A3%E5%91%8A%E6%BB%BF%E8%A1%97%E8%B7%91-k-pop%E8%83%8C%E5%BE%8C%E9%9A%B1%E8%97%8F%E7%9A%84%E5%95%86%E6%A5%AD%E7%8E%84%E6%A9%9F/ar-AA2epvUi",
-   "image": "https://www.bing.com/th?id=ONUT.i4qtnycQhGAtWqAUSEx0mg&pid=News"
-  },
-  {
-   "id": 77,
-   "cat": "music",
    "country": "kr",
    "date": "2026-10-17",
    "outlet": "한국일보 on MSN",
    "title": "공개 29시간 만에 멜론 1위... 이수만의 에이투오, K팝 판도 다시 흔들까",
-   "url": "https://www.msn.com/ko-kr/entertainment/news/%EA%B3%B5%EA%B0%9C-29%EC%8B%9C%EA%B0%84-%EB%A7%8C%EC%97%90-%EB%A9%9C%EB%A1%A0-1%EC%9C%84-%EC%9D%B4%EC%88%98%EB%A7%8C%EC%9D%98-%EC%97%90%EC%9D%B4%ED%88%AC%EC%98%A4-k%ED%8C%9D-%ED%8C%90%EB%8F%84-%EB%8B%A4%EC%8B%9C-%ED%9D%94%EB%93%A4%EA%B9%8C/ar-AA2epG8E",
+   "url": "https://www.msn.com/ko-kr/entertainment/%EC%9C%A0%EB%AA%85-%EC%9D%B8%EC%82%AC/%EA%B3%B5%EA%B0%9C-29%EC%8B%9C%EA%B0%84-%EB%A7%8C%EC%97%90-%EB%A9%9C%EB%A1%A0-1%EC%9C%84-%EC%9D%B4%EC%88%98%EB%A7%8C%EC%9D%98-%EC%97%90%EC%9D%B4%ED%88%AC%EC%98%A4-k%ED%8C%9D-%ED%8C%90%EB%8F%84-%EB%8B%A4%EC%8B%9C-%ED%9D%94%EB%93%A4%EA%B9%8C/ar-AA2epG8E",
    "image": "https://www.bing.com/th?id=ONUT.sYB0Y2YL5Hdn7F1RyGADiA&pid=News"
   },
   {
-   "id": 78,
+   "id": 77,
    "cat": "drama",
    "country": "cn",
    "date": "2026-10-17",
@@ -782,7 +772,7 @@
    "image": "https://www.bing.com/th?id=ONUT.VjQkMVOCQ_HjhP73t4KMLA&pid=News"
   },
   {
-   "id": 79,
+   "id": 78,
    "cat": "music",
    "country": "kr",
    "date": "2026-10-17",
@@ -790,6 +780,16 @@
    "title": "어린 보아 돌아온 줄…A2O 터트린 이수만, K팝 판세 바꿀까[초점S]",
    "url": "https://www.msn.com/ko-kr/entertainment/%EC%9C%A0%EB%AA%85-%EC%9D%B8%EC%82%AC/%EC%96%B4%EB%A6%B0-%EB%B3%B4%EC%95%84-%EB%8F%8C%EC%95%84%EC%98%A8-%EC%A4%84-a2o-%ED%84%B0%ED%8A%B8%EB%A6%B0-%EC%9D%B4%EC%88%98%EB%A7%8C-k%ED%8C%9D-%ED%8C%90%EC%84%B8-%EB%B0%94%EA%BF%80%EA%B9%8C-%EC%B4%88%EC%A0%90s/ar-AA2epNAl",
    "image": "https://www.bing.com/th?id=ONUT.z9JduOOtpU3smkY5LXf5nw&pid=News"
+  },
+  {
+   "id": 79,
+   "cat": "music",
+   "country": "cn",
+   "date": "2026-10-17",
+   "outlet": "Yahoo奇摩新聞",
+   "title": "北京觀察》韓流重返中國？GD權志龍聯名麥當勞廣告滿街跑，K-pop背後隱藏的商業玄機",
+   "url": "https://tw.news.yahoo.com/%E5%8C%97%E4%BA%AC%E8%A7%80%E5%AF%9F-%E9%9F%93%E6%B5%81%E9%87%8D%E8%BF%94%E4%B8%AD%E5%9C%8B-gd%E6%AC%8A%E5%BF%97%E9%BE%8D%E8%81%AF%E5%90%8D%E9%BA%A5%E7%95%B6%E5%8B%9E%E5%BB%A3%E5%91%8A%E6%BB%BF%E8%A1%97%E8%B7%91-k-pop%E8%83%8C%E5%BE%8C%E9%9A%B1%E8%97%8F%E7%9A%84%E5%95%86%E6%A5%AD%E7%8E%84%E6%A9%9F-030000858.html",
+   "image": "https://s.yimg.com/lo/mysterio/api/f9bb56e0d63175a9997b02d0d57b31b71b86063fafc7e148f27d63589fe3eecb/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fstormmediagroup.com%2F3bcf6ae2ce39325abfe09edfc0a91570"
   },
   {
    "id": 80,
