@@ -123,6 +123,28 @@ main .wrap { padding-block: 8px 96px; }
 .empty { padding: 40px 16px; text-align: center; border-radius: 16px; background: var(--surface); color: var(--muted); }
 .empty strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 16px; }
 
+/* 시청자 반응 */
+.yt-form { display: flex; gap: 8px; margin-bottom: 8px; }
+.field { flex: 1; min-width: 0; height: 44px; padding: 0 20px; border-radius: 30px; border: 2px solid var(--border); background: var(--canvas); color: var(--ink); font: inherit; font-size: 15px; }
+.field:focus { outline: none; border-color: var(--ink); }
+.go { flex: none; height: 44px; padding: 0 20px; border-radius: 30px; border: 0; background: var(--chip-on-bg); color: var(--chip-on-fg); font-size: 15px; font-weight: 700; }
+.yt-key { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; color: var(--muted); font-size: 12px; line-height: 18px; }
+.yt-key .field { flex: 1 1 220px; height: 36px; font-size: 13px; }
+.yt-key .act { background: var(--surface); }
+.yt-key .bad { flex-basis: 100%; color: var(--ink); font-weight: 700; }
+.msg { padding: 20px; border-radius: 16px; background: var(--surface); color: var(--ink); font-size: 14px; line-height: 24px; }
+.msg.loading { color: var(--muted); }
+.video { margin: 0 0 4px; font-size: 20px; line-height: 28px; font-weight: 700; color: var(--ink); word-break: keep-all; overflow-wrap: anywhere; }
+.video a { text-decoration: none; }
+.video a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cmts { list-style: none; margin: 16px 0 0; padding: 0; }
+.cmt { padding: 16px 0; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+.cmt-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.cmt-head strong { color: var(--ink); font-size: 14px; }
+.cmt-head span, .cmt-like { color: var(--muted); font-size: 12px; line-height: 18px; font-variant-numeric: tabular-nums; }
+.cmt-text { margin: 0; color: var(--fg); font-size: 14px; line-height: 24.92px; letter-spacing: -0.2px; white-space: pre-line; overflow-wrap: anywhere; }
+.cmt-like strong { color: var(--ink); }
+
 /* 바로 가기 */
 .jump { position: fixed; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: flex-end; gap: 6px; z-index: 5; }
 .jump .tag { height: 32px; padding: 0 12px; border-radius: 16px; border: 2px solid #FFFFFF; background: #111111; color: #FFFFFF; font-size: 13px; font-weight: 700; }
@@ -139,6 +161,7 @@ main .wrap { padding-block: 8px 96px; }
     <nav class="tabs" role="tablist" aria-label="화면 선택">
       <button class="tab" id="tab-news" role="tab" aria-selected="true" aria-controls="panel-news">업계 뉴스</button>
       <button class="tab" id="tab-scrap" role="tab" aria-selected="false" aria-controls="panel-scrap">내 스크랩 <span class="count" id="scrap-count">0</span></button>
+      <button class="tab" id="tab-yt" role="tab" aria-selected="false" aria-controls="panel-yt">시청자 반응</button>
     </nav>
   </div>
 </header>
@@ -173,6 +196,16 @@ main .wrap { padding-block: 8px 96px; }
         <h2 class="shead">스크랩한 기사 <span class="n" id="scrap-n">0건</span></h2>
         <div id="scrap-body"></div>
       </div>
+    </section>
+
+    <section id="panel-yt" role="tabpanel" aria-labelledby="tab-yt" hidden>
+      <p class="note">유튜브 영상 주소를 넣으면 그 영상의 인기 댓글을 보여 줍니다.</p>
+      <form class="yt-form" id="yt-form" novalidate>
+        <input class="field" id="yt-url" type="text" inputmode="url" autocomplete="off" placeholder="https://www.youtube.com/watch?v=…" aria-label="유튜브 영상 주소">
+        <button class="go" type="submit">댓글 보기</button>
+      </form>
+      <div class="yt-key" id="yt-key"></div>
+      <div id="yt-result"></div>
     </section>
   </div>
 </main>
@@ -309,10 +342,10 @@ function renderAll() { renderControls(); renderNote(); renderNews(); renderScrap
 
 function setTab(tab) {
   state.tab = tab;
-  $("tab-news").setAttribute("aria-selected", tab === "news");
-  $("tab-scrap").setAttribute("aria-selected", tab === "scrap");
-  $("panel-news").hidden = tab !== "news";
-  $("panel-scrap").hidden = tab !== "scrap";
+  for (const t of ["news", "scrap", "yt"]) {
+    $("tab-" + t).setAttribute("aria-selected", tab === t);
+    $("panel-" + t).hidden = tab !== t;
+  }
   updateJump();
 }
 
@@ -365,11 +398,105 @@ document.addEventListener("click", (e) => {
   if ((el = t("[data-copy]"))) { copy(el, el.dataset.copy); return; }
   if ((el = t("[data-read]"))) { markRead(el.dataset.read); return; }
   if ((el = t("[data-jump]"))) { if (el.dataset.jump === "top") window.scrollTo(0, 0); else $("sec-" + el.dataset.jump).scrollIntoView(); return; }
-  if (t("#tab-news")) setTab("news");
-  if (t("#tab-scrap")) setTab("scrap");
+  if ((el = t("[data-ytkey]"))) { ytKeyAction(el.dataset.ytkey); return; }
+  if ((el = t("[role=tab]"))) setTab(el.id.slice(4));
 });
 document.addEventListener("auxclick", (e) => { const el = e.target.closest("[data-read]"); if (el) markRead(el.dataset.read); });
 window.addEventListener("scroll", updateJump, { passive: true });
+
+// ── 시청자 반응: 유튜브 영상의 인기 댓글 ──
+// API 키는 공개 저장소에 넣지 않고, 이 기기의 브라우저에만 저장함
+let ytKey = store.get("ytKey", "");
+let ytRequest = 0;
+
+function renderYtKey(error) {
+  $("yt-key").innerHTML = ytKey && !error
+    ? `<span>YouTube API 키가 이 기기에 저장되어 있어요.</span><button class="act" data-ytkey="change">키 바꾸기</button>`
+    : `<input class="field" id="yt-key-input" type="password" autocomplete="off" placeholder="YouTube API 키 붙여넣기" aria-label="YouTube API 키">
+       <button class="act" data-ytkey="save">저장</button>
+       ${error ? `<span class="bad">${esc(error)}</span>` : ""}
+       <span>키는 이 기기의 브라우저에만 저장돼요. 다른 사람에게는 보이지 않아요.</span>`;
+}
+
+function ytKeyAction(action) {
+  if (action === "change") { renderYtKey(); $("yt-key-input").focus(); return; }
+  const value = $("yt-key-input").value.trim();
+  if (!value) { renderYtKey("API 키를 넣어 주세요."); return; }
+  ytKey = value;
+  store.set("ytKey", ytKey);
+  renderYtKey();
+}
+
+// 유튜브 주소(또는 11자리 영상 번호)에서 영상 번호 꺼내기
+function videoIdFrom(text) {
+  const s = text.trim();
+  if (/^[\w-]{11}$/.test(s)) return s;
+  let u;
+  try { u = new URL(/^https?:\/\//i.test(s) ? s : "https://" + s); } catch { return null; }
+  const host = u.hostname.replace(/^(www|m|music)\./, "");
+  let id = null;
+  if (host === "youtu.be") id = u.pathname.split("/")[1];
+  else if (host === "youtube.com") id = u.searchParams.get("v") || (u.pathname.match(/^\/(?:shorts|embed|live)\/([\w-]{11})/) || [])[1];
+  return id && /^[\w-]{11}$/.test(id) ? id : null;
+}
+
+function ytMessage(status, reason, message) {
+  if (reason === "commentsDisabled") return "이 영상은 댓글 기능이 꺼져 있어요.";
+  if (reason === "videoNotFound") return "영상을 찾을 수 없어요. 삭제됐거나 비공개 영상일 수 있어요.";
+  if (reason === "quotaExceeded" || reason === "dailyLimitExceeded") return "오늘 쓸 수 있는 조회 횟수를 다 썼어요. 한국 시간 오후 4~5시 이후에 다시 해 보세요.";
+  if (reason === "keyInvalid" || /API key not valid/i.test(message)) return "API 키가 올바르지 않아요. '키 바꾸기'를 눌러 다시 넣어 주세요.";
+  if (reason === "accessNotConfigured" || /has not been used|is disabled/i.test(message)) return "이 API 키로는 YouTube Data API를 쓸 수 없어요. Google Cloud에서 'YouTube Data API v3'를 켜 주세요.";
+  if (/referer|referrer/i.test(message)) return "이 API 키는 이 주소에서 쓸 수 없게 막혀 있어요. Google Cloud의 키 설정을 확인해 주세요.";
+  return `댓글을 가져오지 못했어요. 잠시 뒤 다시 해 보세요. (오류 ${status})`;
+}
+
+async function yt(path, params) {
+  let res;
+  try { res = await fetch("https://www.googleapis.com/youtube/v3/" + path + "?" + new URLSearchParams({ ...params, key: ytKey }), { signal: AbortSignal.timeout(15000) }); }
+  catch (e) { throw new Error(e.name === "TimeoutError" ? "유튜브 응답이 너무 늦어요. 잠시 뒤 다시 해 보세요." : "인터넷 연결을 확인해 주세요. 유튜브에 접속하지 못했어요."); }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(ytMessage(res.status, data.error?.errors?.[0]?.reason || "", data.error?.message || ""));
+  return data;
+}
+
+const ytShow = (html) => { $("yt-result").innerHTML = html; };
+const ytNotice = (text, loading) => ytShow(`<div class="msg${loading ? " loading" : ""}">${esc(text)}</div>`);
+const kstDay = (iso) => fmtDate(new Date(Date.parse(iso) + 9 * 3600e3).toISOString().slice(0, 10));
+
+async function showComments(e) {
+  e.preventDefault();
+  const input = $("yt-url").value;
+  if (!input.trim()) return ytNotice("유튜브 영상 주소를 넣어 주세요.");
+  const id = videoIdFrom(input);
+  if (!id) return ytNotice("유튜브 영상 주소가 아니에요. 예: https://www.youtube.com/watch?v=영상번호 또는 https://youtu.be/영상번호");
+  if (!ytKey) { renderYtKey("먼저 YouTube API 키를 넣고 '저장'을 눌러 주세요."); return ytShow(""); }
+
+  const mine = ++ytRequest;
+  ytNotice("댓글을 불러오는 중이에요…", true);
+  try {
+    const video = (await yt("videos", { part: "snippet", id })).items?.[0];
+    if (!video) throw new Error(ytMessage(404, "videoNotFound", ""));
+    const threads = await yt("commentThreads", { part: "snippet", videoId: id, order: "relevance", maxResults: 50, textFormat: "plainText" });
+    if (mine !== ytRequest) return;
+    const items = threads.items || [];
+    const title = `<h2 class="video"><a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer">${esc(video.snippet.title)}</a></h2>`;
+    if (!items.length) return ytShow(title + `<div class="msg">아직 댓글이 없는 영상이에요.</div>`);
+    ytShow(title + `<p class="note" style="margin:0">${esc(video.snippet.channelTitle)} · 인기 댓글 ${items.length}개</p>
+      <ol class="cmts">${items.map((it) => {
+        const c = it.snippet.topLevelComment.snippet;
+        return `<li class="cmt">
+          <div class="cmt-head"><strong>${esc(c.authorDisplayName)}</strong><span>${kstDay(c.publishedAt)}</span></div>
+          <p class="cmt-text">${esc(c.textOriginal ?? c.textDisplay)}</p>
+          <div class="cmt-like">좋아요 <strong>${Number(c.likeCount).toLocaleString("ko-KR")}</strong></div>
+        </li>`;
+      }).join("")}</ol>`);
+  } catch (err) {
+    if (mine === ytRequest) ytNotice(err.message);
+  }
+}
+
+$("yt-form").addEventListener("submit", showComments);
+renderYtKey();
 
 // 기사 받기: 처음 열 때 한 번, 그 뒤 5분마다 새로 모은 기사가 있는지 확인 (스크랩은 그대로 남음)
 async function load() {
