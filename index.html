@@ -128,7 +128,8 @@ main .wrap { padding-block: 8px 96px; }
 .field { flex: 1; min-width: 0; height: 44px; padding: 0 20px; border-radius: 30px; border: 2px solid var(--border); background: var(--canvas); color: var(--ink); font: inherit; font-size: 15px; }
 .field:focus { outline: none; border-color: var(--ink); }
 .go { flex: none; height: 44px; padding: 0 20px; border-radius: 30px; border: 0; background: var(--chip-on-bg); color: var(--chip-on-fg); font-size: 15px; font-weight: 700; }
-.yt-key { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; color: var(--muted); font-size: 12px; line-height: 18px; }
+.keys { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.yt-key { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--muted); font-size: 12px; line-height: 18px; }
 .yt-key .field { flex: 1 1 220px; height: 36px; font-size: 13px; }
 .yt-key .act { background: var(--surface); }
 .yt-key .bad { flex-basis: 100%; color: var(--ink); font-weight: 700; }
@@ -144,6 +145,43 @@ main .wrap { padding-block: 8px 96px; }
 .cmt-head span, .cmt-like { color: var(--muted); font-size: 12px; line-height: 18px; font-variant-numeric: tabular-nums; }
 .cmt-text { margin: 0; color: var(--fg); font-size: 14px; line-height: 24.92px; letter-spacing: -0.2px; white-space: pre-line; overflow-wrap: anywhere; }
 .cmt-like strong { color: var(--ink); }
+.cmt-num { color: var(--muted); font-size: 12px; font-weight: 700; }
+.cmt.flash { background: var(--hover); }
+
+/* 반응 분석 리포트 */
+.report-bar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+.go:disabled { background: var(--pressed); color: var(--muted); cursor: wait; }
+.go.ghost { background: var(--surface); color: var(--ink); }
+.report { margin: 0 0 24px; padding: 20px; border-radius: 16px; border: 2px solid var(--ink); display: flex; flex-direction: column; gap: 20px; }
+.r-head h2 { margin: 0; font-size: 20px; line-height: 28px; color: var(--ink); }
+.r-head .note { margin: 4px 0 0; }
+.r-block h3 { margin: 0 0 8px; font-size: 16px; line-height: 24px; color: var(--ink); }
+.r-summary { margin: 0; font-size: 15px; line-height: 26px; color: var(--fg); }
+.r-bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: var(--surface); }
+.r-pos { background: var(--yellow); }
+.r-neu { background: var(--border); }
+.r-neg { background: var(--ink); }
+.r-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 8px 0 12px; font-size: 13px; }
+.r-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 999px; margin-right: 6px; }
+.r-legend strong { color: var(--ink); }
+.r-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.r-list li { padding: 12px 16px; border-radius: 12px; background: var(--surface); }
+.r-list strong { color: var(--ink); font-size: 14px; }
+.r-list p { margin: 4px 0 0; font-size: 14px; line-height: 22px; }
+.ev { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 12px; line-height: 18px; color: var(--muted); }
+.evn { border: 0; background: var(--canvas); color: var(--ink); border-radius: 999px; height: 22px; padding: 0 8px; font-size: 12px; font-weight: 700; }
+.ev q { flex-basis: 100%; }
+.r-kw { display: flex; flex-wrap: wrap; gap: 6px; }
+.r-kw span { height: 32px; padding: 0 14px; border-radius: 30px; background: var(--surface); display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink); }
+.r-kw b { font-size: 12px; color: var(--muted); }
+.r-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.r-none { margin: 0; color: var(--muted); }
+.r-foot { margin: 0; font-size: 12px; line-height: 18px; color: var(--muted); }
+.r-export { display: flex; gap: 8px; flex-wrap: wrap; }
+/* PDF로 내보낼 때는 화면 설정과 상관없이 흰 종이에 검정 글씨 */
+.paper { --canvas: #FFFFFF; --ink: #111111; --fg: #333333; --muted: #888888; --surface: #EEEEEE; --border: #DBDBDB; --hover: #F3F3F3;
+  width: 690px; padding: 8px; /* A4에서 여백(12mm)을 뺀 폭에 맞춤 */ background: #FFFFFF; color: #333333; font-family: var(--font); display: flex; flex-direction: column; gap: 20px; }
+.paper .report { border: 0; padding: 0; margin: 0; }
 
 /* 바로 가기 */
 .jump { position: fixed; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: flex-end; gap: 6px; z-index: 5; }
@@ -204,7 +242,11 @@ main .wrap { padding-block: 8px 96px; }
         <input class="field" id="yt-url" type="text" inputmode="url" autocomplete="off" placeholder="https://www.youtube.com/watch?v=…" aria-label="유튜브 영상 주소">
         <button class="go" type="submit">댓글 보기</button>
       </form>
-      <div class="yt-key" id="yt-key"></div>
+      <div class="keys">
+        <div class="yt-key" id="key-yt"></div>
+        <div class="yt-key" id="key-gemini"></div>
+        <p class="note" style="margin:0">키는 이 기기의 브라우저에만 저장돼요. 다른 사람에게는 보이지 않아요.</p>
+      </div>
       <div id="yt-result"></div>
     </section>
   </div>
@@ -398,33 +440,62 @@ document.addEventListener("click", (e) => {
   if ((el = t("[data-copy]"))) { copy(el, el.dataset.copy); return; }
   if ((el = t("[data-read]"))) { markRead(el.dataset.read); return; }
   if ((el = t("[data-jump]"))) { if (el.dataset.jump === "top") window.scrollTo(0, 0); else $("sec-" + el.dataset.jump).scrollIntoView(); return; }
-  if ((el = t("[data-ytkey]"))) { ytKeyAction(el.dataset.ytkey); return; }
+  if ((el = t("[data-key]"))) { keyAction(el.dataset.key); return; }
+  if ((el = t("[data-report]"))) { makeReport(); return; }
+  if ((el = t("[data-export]"))) { exportReport(el.dataset.export, el); return; }
+  if ((el = t("[data-ev]"))) { showEvidence(el.dataset.ev); return; }
   if ((el = t("[role=tab]"))) setTab(el.id.slice(4));
 });
 document.addEventListener("auxclick", (e) => { const el = e.target.closest("[data-read]"); if (el) markRead(el.dataset.read); });
 window.addEventListener("scroll", updateJump, { passive: true });
 
-// ── 시청자 반응: 유튜브 영상의 인기 댓글 ──
+// ── 시청자 반응: 유튜브 영상의 인기 댓글 + 반응 분석 리포트 ──
 // API 키는 공개 저장소에 넣지 않고, 이 기기의 브라우저에만 저장함
-let ytKey = store.get("ytKey", "");
+const KEYS = {
+  yt: { label: "YouTube API 키", storeKey: "ytKey" },
+  gemini: { label: "Gemini API 키", storeKey: "geminiKey" }
+};
+const keys = { yt: store.get("ytKey", ""), gemini: store.get("geminiKey", "") };
+let geminiFromFile = false; // 내 컴퓨터의 secrets.js에서 채운 키인지
 let ytRequest = 0;
+let current = null; // 지금 보이는 영상과 댓글 { id, title, channel, comments: [{ n, author, date, text, likes }] }
+let report = null;
 
-function renderYtKey(error) {
-  $("yt-key").innerHTML = ytKey && !error
-    ? `<span>YouTube API 키가 이 기기에 저장되어 있어요.</span><button class="act" data-ytkey="change">키 바꾸기</button>`
-    : `<input class="field" id="yt-key-input" type="password" autocomplete="off" placeholder="YouTube API 키 붙여넣기" aria-label="YouTube API 키">
-       <button class="act" data-ytkey="save">저장</button>
-       ${error ? `<span class="bad">${esc(error)}</span>` : ""}
-       <span>키는 이 기기의 브라우저에만 저장돼요. 다른 사람에게는 보이지 않아요.</span>`;
+function renderKey(kind, error) {
+  const k = KEYS[kind];
+  if (kind === "gemini" && geminiFromFile && !error) {
+    $("key-gemini").innerHTML = `<span>${k.label}: 내 컴퓨터의 secrets.js에서 자동으로 채웠어요.</span>`;
+    return;
+  }
+  $("key-" + kind).innerHTML = keys[kind] && !error
+    ? `<span>${k.label}가 이 기기에 저장되어 있어요.</span><button class="act" data-key="change:${kind}">키 바꾸기</button>`
+    : `<input class="field" id="key-input-${kind}" type="password" autocomplete="off" placeholder="${k.label} 붙여넣기" aria-label="${k.label}">
+       <button class="act" data-key="save:${kind}">저장</button>
+       ${error ? `<span class="bad">${esc(error)}</span>` : ""}`;
 }
 
-function ytKeyAction(action) {
-  if (action === "change") { renderYtKey(); $("yt-key-input").focus(); return; }
-  const value = $("yt-key-input").value.trim();
-  if (!value) { renderYtKey("API 키를 넣어 주세요."); return; }
-  ytKey = value;
-  store.set("ytKey", ytKey);
-  renderYtKey();
+function keyAction(spec) {
+  const [action, kind] = spec.split(":");
+  if (action === "change") { renderKey(kind, ""); $("key-input-" + kind).focus(); return; }
+  const value = $("key-input-" + kind).value.trim();
+  if (!value) { renderKey(kind, "API 키를 넣어 주세요."); return; }
+  keys[kind] = value;
+  store.set(KEYS[kind].storeKey, value);
+  renderKey(kind);
+}
+
+// 내 컴퓨터(localhost)에서 열면 secrets.js의 Gemini 키를 자동으로 채움. 공개 사이트에는 secrets.js가 없음
+function loadLocalSecrets() {
+  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
+  const s = document.createElement("script");
+  s.src = "secrets.js";
+  s.onload = () => {
+    if (typeof GEMINI_API_KEY !== "string" || !GEMINI_API_KEY) return;
+    keys.gemini = GEMINI_API_KEY;
+    geminiFromFile = true;
+    renderKey("gemini");
+  };
+  document.head.append(s);
 }
 
 // 유튜브 주소(또는 11자리 영상 번호)에서 영상 번호 꺼내기
@@ -452,7 +523,7 @@ function ytMessage(status, reason, message) {
 
 async function yt(path, params) {
   let res;
-  try { res = await fetch("https://www.googleapis.com/youtube/v3/" + path + "?" + new URLSearchParams({ ...params, key: ytKey }), { signal: AbortSignal.timeout(15000) }); }
+  try { res = await fetch("https://www.googleapis.com/youtube/v3/" + path + "?" + new URLSearchParams({ ...params, key: keys.yt }), { signal: AbortSignal.timeout(15000) }); }
   catch (e) { throw new Error(e.name === "TimeoutError" ? "유튜브 응답이 너무 늦어요. 잠시 뒤 다시 해 보세요." : "인터넷 연결을 확인해 주세요. 유튜브에 접속하지 못했어요."); }
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(ytMessage(res.status, data.error?.errors?.[0]?.reason || "", data.error?.message || ""));
@@ -462,6 +533,15 @@ async function yt(path, params) {
 const ytShow = (html) => { $("yt-result").innerHTML = html; };
 const ytNotice = (text, loading) => ytShow(`<div class="msg${loading ? " loading" : ""}">${esc(text)}</div>`);
 const kstDay = (iso) => fmtDate(new Date(Date.parse(iso) + 9 * 3600e3).toISOString().slice(0, 10));
+const clip = (s, n) => (s.length > n ? s.slice(0, n) + "…" : s).replace(/\s+/g, " ");
+
+function commentHTML(c) {
+  return `<li class="cmt" id="cmt-${c.n}">
+    <div class="cmt-head"><span class="cmt-num">#${c.n}</span><strong>${esc(c.author)}</strong><span>${c.date}</span></div>
+    <p class="cmt-text">${esc(c.text)}</p>
+    <div class="cmt-like">좋아요 <strong>${c.likes.toLocaleString("ko-KR")}</strong></div>
+  </li>`;
+}
 
 async function showComments(e) {
   e.preventDefault();
@@ -469,35 +549,304 @@ async function showComments(e) {
   if (!input.trim()) return ytNotice("유튜브 영상 주소를 넣어 주세요.");
   const id = videoIdFrom(input);
   if (!id) return ytNotice("유튜브 영상 주소가 아니에요. 예: https://www.youtube.com/watch?v=영상번호 또는 https://youtu.be/영상번호");
-  if (!ytKey) { renderYtKey("먼저 YouTube API 키를 넣고 '저장'을 눌러 주세요."); return ytShow(""); }
+  if (!keys.yt) { renderKey("yt", "먼저 YouTube API 키를 넣고 '저장'을 눌러 주세요."); return ytShow(""); }
 
   const mine = ++ytRequest;
+  current = null;
+  report = null;
   ytNotice("댓글을 불러오는 중이에요…", true);
   try {
     const video = (await yt("videos", { part: "snippet", id })).items?.[0];
     if (!video) throw new Error(ytMessage(404, "videoNotFound", ""));
     const threads = await yt("commentThreads", { part: "snippet", videoId: id, order: "relevance", maxResults: 50, textFormat: "plainText" });
     if (mine !== ytRequest) return;
-    // 유튜브 인기 댓글 50개를 좋아요 많은 순으로 다시 정렬
-    const items = (threads.items || []).sort((a, b) => b.snippet.topLevelComment.snippet.likeCount - a.snippet.topLevelComment.snippet.likeCount);
     const title = `<h2 class="video"><a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer">${esc(video.snippet.title)}</a></h2>`;
-    if (!items.length) return ytShow(title + `<div class="msg">아직 댓글이 없는 영상이에요.</div>`);
-    ytShow(title + `<p class="note" style="margin:0">${esc(video.snippet.channelTitle)} · 인기 댓글 ${items.length}개 · 좋아요 많은 순</p>
-      <ol class="cmts">${items.map((it) => {
-        const c = it.snippet.topLevelComment.snippet;
-        return `<li class="cmt">
-          <div class="cmt-head"><strong>${esc(c.authorDisplayName)}</strong><span>${kstDay(c.publishedAt)}</span></div>
-          <p class="cmt-text">${esc(c.textOriginal ?? c.textDisplay)}</p>
-          <div class="cmt-like">좋아요 <strong>${Number(c.likeCount).toLocaleString("ko-KR")}</strong></div>
-        </li>`;
-      }).join("")}</ol>`);
+    if (!threads.items?.length) return ytShow(title + `<div class="msg">아직 댓글이 없는 영상이에요.</div>`);
+    // 유튜브 인기 댓글 50개를 좋아요 많은 순으로 다시 정렬하고 번호를 붙임
+    const comments = threads.items
+      .map((it) => it.snippet.topLevelComment.snippet)
+      .sort((a, b) => b.likeCount - a.likeCount)
+      .map((c, i) => ({ n: i + 1, author: c.authorDisplayName, date: kstDay(c.publishedAt), text: c.textOriginal ?? c.textDisplay, likes: Number(c.likeCount) }));
+    current = { id, title: video.snippet.title, channel: video.snippet.channelTitle, comments };
+    ytShow(title + `<p class="note" style="margin:0">${esc(current.channel)} · 인기 댓글 ${comments.length}개 · 좋아요 많은 순</p>
+      <div class="report-bar"><button class="go" id="report-btn" data-report>반응 분석 리포트</button><span class="note" style="margin:0">위 댓글 ${comments.length}개를 Gemini로 분석해요.</span></div>
+      <div id="report"></div>
+      <ol class="cmts">${comments.map(commentHTML).join("")}</ol>`);
   } catch (err) {
     if (mine === ytRequest) ytNotice(err.message);
   }
 }
 
+// ── 반응 분석 리포트 (Gemini) ──
+const MODEL = "gemini-3.1-flash-lite";
+const RULES = `너는 유튜브 댓글을 읽고 콘텐츠 업계 실무자에게 보고하는 분석가다. 반드시 지킬 규칙:
+1. 아래 [댓글 목록]에 실제로 적힌 내용만 근거로 쓴다. 댓글에 없는 사실, 수치, 인물, 사건, 추측은 절대 쓰지 않는다.
+2. 모든 항목의 evidence에는 그 내용의 근거가 되는 댓글 번호를 넣는다. 근거 댓글을 찾을 수 없는 항목은 아예 쓰지 않는다. 해당 내용이 없으면 빈 배열로 둔다.
+3. comments에는 모든 댓글 번호마다 감정(긍정/중립/부정)과, 그 댓글이 쓰인 언어를 한국어 이름(예: 한국어, 영어, 스페인어)으로 적는다. 이모지만 있거나 언어를 알 수 없으면 "알 수 없음"으로 적는다.
+4. languages의 language는 comments에 적은 언어 이름과 똑같이 쓴다.
+5. keywords에는 여러 댓글에 반복해서 나오는 단어를 댓글 원문에 쓰인 표기 그대로 적는다. 번역하지 않는다. 최대 10개.
+6. 요약, 판단 근거, 칭찬받은 점, 지적받은 점, 액션 제안은 한국어로 짧고 분명하게 쓴다. 액션 제안은 댓글에서 드러난 반응에 직접 근거해야 한다.`;
+
+const withEvidence = (fields) => ({
+  type: "OBJECT",
+  properties: { ...fields, evidence: { type: "ARRAY", items: { type: "INTEGER" } } },
+  required: [...Object.keys(fields), "evidence"]
+});
+const SENTIMENT = { type: "STRING", format: "enum", enum: ["긍정", "중립", "부정"] };
+const SCHEMA = {
+  type: "OBJECT",
+  properties: {
+    summary: { type: "STRING" },
+    comments: { type: "ARRAY", items: { type: "OBJECT", properties: { n: { type: "INTEGER" }, sentiment: SENTIMENT, language: { type: "STRING" } }, required: ["n", "sentiment", "language"] } },
+    sentimentBasis: { type: "ARRAY", items: withEvidence({ label: SENTIMENT, reason: { type: "STRING" } }) },
+    keywords: { type: "ARRAY", items: { type: "STRING" } },
+    languages: { type: "ARRAY", items: withEvidence({ language: { type: "STRING" }, reaction: { type: "STRING" } }) },
+    praises: { type: "ARRAY", items: withEvidence({ point: { type: "STRING" } }) },
+    criticisms: { type: "ARRAY", items: withEvidence({ point: { type: "STRING" } }) },
+    actions: { type: "ARRAY", items: withEvidence({ action: { type: "STRING" }, reason: { type: "STRING" } }) }
+  },
+  required: ["summary", "comments", "sentimentBasis", "keywords", "languages", "praises", "criticisms", "actions"]
+};
+
+function geminiMessage(status, data) {
+  const msg = data.error?.message || "";
+  if (/API key not valid|API_KEY_INVALID/i.test(msg)) return "Gemini API 키가 올바르지 않아요. '키 바꾸기'를 눌러 다시 넣어 주세요.";
+  if (status === 429) return "Gemini 사용량 한도에 걸렸어요. 1~2분 뒤에 다시 해 보세요.";
+  if (status === 403) return "이 Gemini 키로는 분석할 수 없어요. Google AI Studio에서 키 권한을 확인해 주세요.";
+  if (status === 404) return `Gemini 모델(${MODEL})을 찾을 수 없어요.`;
+  if (status >= 500) return "Gemini가 지금 바빠요. 잠시 뒤 다시 해 보세요.";
+  return `리포트를 만들지 못했어요. 잠시 뒤 다시 해 보세요. (오류 ${status})`;
+}
+
+async function askGemini(c, retry = true) {
+  const list = c.comments.map((x) => `#${x.n} (좋아요 ${x.likes}) ${x.text.replace(/\s+/g, " ")}`).join("\n");
+  let res;
+  try {
+    res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": keys.gemini },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: RULES }] },
+        contents: [{ role: "user", parts: [{ text: `[영상] ${c.title} / ${c.channel}\n[댓글 목록]\n${list}` }] }],
+        generationConfig: { temperature: 0.2, responseMimeType: "application/json", responseSchema: SCHEMA }
+      }),
+      signal: AbortSignal.timeout(90000)
+    });
+  } catch (e) {
+    throw new Error(e.name === "TimeoutError" ? "Gemini 응답이 너무 늦어요. 잠시 뒤 다시 해 보세요." : "인터넷 연결을 확인해 주세요. Gemini에 접속하지 못했어요.");
+  }
+  const data = await res.json().catch(() => ({}));
+  // Gemini가 잠깐 바쁠 때(500·503)는 3초 뒤 한 번 더 시도
+  if (res.status >= 500 && retry) { await new Promise((r) => setTimeout(r, 3000)); return askGemini(c, false); }
+  if (!res.ok) throw new Error(geminiMessage(res.status, data));
+  if (data.promptFeedback?.blockReason) throw new Error("Gemini가 안전 정책 때문에 이 댓글들의 분석을 거절했어요.");
+  const text = (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("");
+  try { return JSON.parse(text); } catch { throw new Error("Gemini의 답을 읽지 못했어요. 다시 눌러 보세요."); }
+}
+
+// Gemini의 답을 실제 댓글과 맞춰 봄: 없는 댓글 번호는 버리고, 근거가 없는 항목은 빼고, 비율·키워드 수는 직접 셈
+function buildReport(raw, c) {
+  const N = c.comments.length;
+  const valid = (ev) => [...new Set((Array.isArray(ev) ? ev : []).filter((n) => Number.isInteger(n) && n >= 1 && n <= N))];
+  const keep = (items, field) => (Array.isArray(items) ? items : [])
+    .map((it) => ({ ...it, evidence: valid(it.evidence) }))
+    .filter((it) => it.evidence.length && String(it[field] || "").trim());
+
+  const byComment = new Map();
+  for (const x of Array.isArray(raw.comments) ? raw.comments : []) {
+    if (Number.isInteger(x.n) && x.n >= 1 && x.n <= N && !byComment.has(x.n)) byComment.set(x.n, x);
+  }
+  const counts = { 긍정: 0, 중립: 0, 부정: 0 };
+  const langCount = new Map();
+  for (const x of byComment.values()) {
+    if (x.sentiment in counts) counts[x.sentiment]++;
+    const lang = String(x.language || "알 수 없음").trim();
+    langCount.set(lang, (langCount.get(lang) || 0) + 1);
+  }
+  const keywords = [...new Set((Array.isArray(raw.keywords) ? raw.keywords : []).map((w) => String(w).trim()).filter(Boolean))]
+    .map((word) => ({ word, evidence: c.comments.filter((x) => x.text.toLowerCase().includes(word.toLowerCase())).map((x) => x.n) }))
+    .filter((k) => k.evidence.length >= 2)
+    .sort((a, b) => b.evidence.length - a.evidence.length)
+    .slice(0, 10);
+  const languages = keep(raw.languages, "reaction")
+    .map((l) => ({ ...l, language: l.language.trim(), count: langCount.get(l.language.trim()) || l.evidence.length }))
+    .sort((a, b) => b.count - a.count);
+
+  return {
+    summary: String(raw.summary || "").trim(),
+    total: N,
+    classified: Object.values(counts).reduce((a, b) => a + b, 0),
+    counts,
+    basis: keep(raw.sentimentBasis, "reason").filter((b) => b.label in counts),
+    keywords,
+    languages,
+    praises: keep(raw.praises, "point"),
+    criticisms: keep(raw.criticisms, "point"),
+    actions: keep(raw.actions, "action"),
+    createdAt: new Date()
+  };
+}
+
+const pct = (n, total) => (total ? Math.round((n / total) * 100) : 0);
+const stamp = (d) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+const SEGMENTS = [["긍정", "r-pos"], ["중립", "r-neu"], ["부정", "r-neg"]];
+
+function evidenceHTML(ev) {
+  const more = ev.length > 8 ? `<span>외 ${ev.length - 8}개</span>` : "";
+  return `<div class="ev">근거 ${ev.slice(0, 8).map((n) => `<button class="evn" data-ev="${n}">#${n}</button>`).join("")}${more}<q>${esc(clip(current.comments[ev[0] - 1].text, 90))}</q></div>`;
+}
+
+function renderReport() {
+  const r = report;
+  const total = r.classified || 1;
+  const block = (title, body) => `<section class="r-block"><h3>${title}</h3>${body}</section>`;
+  const list = (items, main, sub) => items.length
+    ? `<ul class="r-list">${items.map((it) => `<li><strong>${esc(it[main])}</strong>${sub && it[sub] ? `<p>${esc(it[sub])}</p>` : ""}${evidenceHTML(it.evidence)}</li>`).join("")}</ul>`
+    : `<p class="r-none">댓글에서 찾지 못했어요.</p>`;
+
+  $("report").innerHTML = `<div class="report" id="report-body">
+    <div class="r-head"><h2>반응 분석 리포트</h2><p class="note">${esc(current.title)} · 인기 댓글 ${r.total}개 분석 · ${MODEL} · ${stamp(r.createdAt)}</p></div>
+    ${block("전체 반응 핵심 요약", `<p class="r-summary">${esc(r.summary || "요약을 받지 못했어요.")}</p>`)}
+    ${block("긍정 · 중립 · 부정 비율",
+      `<div class="r-bar">${SEGMENTS.map(([l, cls]) => (r.counts[l] ? `<span class="${cls}" style="width:${pct(r.counts[l], total)}%"></span>` : "")).join("")}</div>
+       <div class="r-legend">${SEGMENTS.map(([l, cls]) => `<span><i class="${cls}"></i>${l} <strong>${pct(r.counts[l], total)}%</strong> (${r.counts[l]}개)</span>`).join("")}</div>
+       ${list(r.basis.map((b) => ({ ...b, head: `${b.label}으로 본 근거` })), "head", "reason")}`)}
+    ${block("자주 나오는 키워드", r.keywords.length
+      ? `<div class="r-kw">${r.keywords.map((k) => `<span>${esc(k.word)} <b>${k.evidence.length}</b></span>`).join("")}</div><p class="note" style="margin:8px 0 0">숫자는 그 단어가 실제로 들어간 댓글 수예요.</p>`
+      : `<p class="r-none">여러 댓글에 반복되는 단어를 찾지 못했어요.</p>`)}
+    ${block("언어권별 반응", list(r.languages.map((l) => ({ ...l, head: `${l.language} (${l.count}개)` })), "head", "reaction"))}
+    <div class="r-two">${block("칭찬받은 점", list(r.praises, "point"))}${block("지적받은 점", list(r.criticisms, "point"))}</div>
+    ${block("실무자 액션 제안", list(r.actions, "action", "reason"))}
+    <p class="r-foot">AI가 위 댓글만 읽고 만든 리포트예요. 근거 댓글 번호(#)를 누르면 원래 댓글로 이동해요.${r.classified < r.total ? ` 감정을 분류하지 못한 댓글 ${r.total - r.classified}개는 비율에서 뺐어요.` : ""}</p>
+    <div class="r-export"><button class="go" data-export="word">Word로 내보내기</button><button class="go ghost" data-export="pdf">PDF로 내보내기</button></div>
+  </div>`;
+}
+
+async function makeReport() {
+  if (!current) return;
+  if (!keys.gemini) { renderKey("gemini", "먼저 Gemini API 키를 넣고 '저장'을 눌러 주세요."); $("key-gemini").scrollIntoView({ block: "center" }); return; }
+  const forVideo = current;
+  const btn = $("report-btn");
+  btn.disabled = true;
+  btn.textContent = "분석하는 중…";
+  $("report").innerHTML = `<div class="msg loading">Gemini가 댓글 ${current.comments.length}개를 읽고 있어요. 10~30초쯤 걸려요.</div>`;
+  try {
+    const raw = await askGemini(forVideo);
+    if (current !== forVideo) return;
+    report = buildReport(raw, forVideo);
+    renderReport();
+  } catch (err) {
+    if (current === forVideo) $("report").innerHTML = `<div class="msg">${esc(err.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "리포트 다시 만들기";
+  }
+}
+
+function showEvidence(n) {
+  const li = $("cmt-" + n);
+  if (!li) return;
+  li.scrollIntoView({ block: "center" });
+  li.classList.add("flash");
+  setTimeout(() => li.classList.remove("flash"), 1600);
+}
+
+// ── 리포트 내보내기 (Word · PDF) ──
+function loadScript(src, globalName) {
+  if (window[globalName]) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = () => reject(new Error("내보내기 도구를 불러오지 못했어요. 인터넷 연결을 확인해 주세요."));
+    document.head.append(s);
+  });
+}
+
+const exportName = (ext) => `반응분석_${current.title.replace(/[\\/:*?"<>|]/g, "").trim().slice(0, 40)}_${stamp(report.createdAt).slice(0, 10).replaceAll(".", "")}.${ext}`;
+
+async function exportWord() {
+  await loadScript("https://unpkg.com/docx@9.5.1/dist/index.umd.cjs", "docx");
+  const { Document, Packer, Paragraph, TextRun, HeadingLevel } = window.docx;
+  const r = report;
+  const P = (text, run = {}) => new Paragraph({ children: [new TextRun({ text, ...run })], spacing: { after: 120 } });
+  const H1 = (text) => new Paragraph({ text, heading: HeadingLevel.HEADING_1, spacing: { after: 120 } });
+  const H2 = (text) => new Paragraph({ text, heading: HeadingLevel.HEADING_2, spacing: { before: 280, after: 120 } });
+  const EV = (ev) => P("근거 " + ev.map((n) => `#${n}`).join(" ") + ` · “${clip(current.comments[ev[0] - 1].text, 90)}”`, { size: 18, color: "888888" });
+  const items = (list, main, sub) => (list.length
+    ? list.flatMap((it) => [P("• " + it[main], { bold: true }), ...(sub && it[sub] ? [P(it[sub])] : []), EV(it.evidence)])
+    : [P("댓글에서 찾지 못했어요.", { color: "888888" })]);
+  const total = r.classified || 1;
+
+  const children = [
+    H1("반응 분석 리포트"),
+    P(`${current.title} · ${current.channel}`, { bold: true }),
+    P(`인기 댓글 ${r.total}개 분석 · ${MODEL} · ${stamp(r.createdAt)}`, { color: "888888" }),
+    H2("전체 반응 핵심 요약"), P(r.summary || "요약을 받지 못했어요."),
+    H2("긍정 · 중립 · 부정 비율"),
+    P(SEGMENTS.map(([l]) => `${l} ${pct(r.counts[l], total)}% (${r.counts[l]}개)`).join("   ")),
+    ...items(r.basis.map((b) => ({ ...b, head: `${b.label}으로 본 근거` })), "head", "reason"),
+    H2("자주 나오는 키워드"),
+    P(r.keywords.length ? r.keywords.map((k) => `${k.word} (${k.evidence.length})`).join(", ") : "여러 댓글에 반복되는 단어를 찾지 못했어요."),
+    ...(r.keywords.length ? [P("괄호 안 숫자는 그 단어가 실제로 들어간 댓글 수예요.", { size: 18, color: "888888" })] : []),
+    H2("언어권별 반응"), ...items(r.languages.map((l) => ({ ...l, head: `${l.language} (${l.count}개)` })), "head", "reaction"),
+    H2("칭찬받은 점"), ...items(r.praises, "point"),
+    H2("지적받은 점"), ...items(r.criticisms, "point"),
+    H2("실무자 액션 제안"), ...items(r.actions, "action", "reason"),
+    P("AI가 아래 댓글만 읽고 만든 리포트예요. 근거 번호는 부록의 댓글 번호예요.", { size: 18, color: "888888" }),
+    H2("부록: 분석한 댓글"),
+    ...current.comments.flatMap((c) => [P(`#${c.n}  ${c.author} · ${c.date} · 좋아요 ${c.likes.toLocaleString("ko-KR")}`, { bold: true, size: 18 }), P(c.text, { size: 20 })])
+  ];
+  const doc = new Document({ styles: { default: { document: { run: { font: "Malgun Gothic", size: 21 } } } }, sections: [{ children }] });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(await Packer.toBlob(doc));
+  a.download = exportName("docx");
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+async function exportPdf() {
+  await loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js", "html2pdf");
+  const paper = document.createElement("div");
+  paper.className = "paper";
+  paper.innerHTML = $("report-body").outerHTML +
+    `<section class="r-block"><h3>부록: 분석한 댓글</h3><ol class="cmts">${current.comments.map(commentHTML).join("")}</ol></section>`;
+  paper.querySelector(".r-export")?.remove();
+  paper.querySelector(".r-foot").textContent = "AI가 아래 댓글만 읽고 만든 리포트예요. 근거 번호는 부록의 댓글 번호예요.";
+  paper.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
+  const holder = document.createElement("div"); // 화면 밖에 잠깐 두는 상자
+  holder.style.cssText = "position: fixed; left: -10000px; top: 0;";
+  holder.append(paper);
+  document.body.append(holder);
+  try {
+    await window.html2pdf().set({
+      margin: 12,
+      filename: exportName("pdf"),
+      image: { type: "jpeg", quality: 0.95 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#FFFFFF" },
+      jsPDF: { unit: "mm", format: "a4" },
+      pagebreak: { mode: ["css", "legacy"], avoid: [".r-list li", ".cmt", ".r-head", ".r-bar"] }
+    }).from(paper).save();
+  } finally {
+    holder.remove();
+  }
+}
+
+async function exportReport(kind, button) {
+  const label = button.textContent;
+  button.disabled = true;
+  button.textContent = "만드는 중…";
+  try { await (kind === "word" ? exportWord() : exportPdf()); }
+  catch (err) { alert(err.message || "파일을 만들지 못했어요. 다시 눌러 보세요."); }
+  finally { button.disabled = false; button.textContent = label; }
+}
+
 $("yt-form").addEventListener("submit", showComments);
-renderYtKey();
+renderKey("yt");
+renderKey("gemini");
+loadLocalSecrets();
 
 // 기사 받기: 처음 열 때 한 번, 그 뒤 5분마다 새로 모은 기사가 있는지 확인 (스크랩은 그대로 남음)
 async function load() {
