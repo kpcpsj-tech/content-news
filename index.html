@@ -825,7 +825,8 @@ async function exportPdf() {
       margin: 12,
       filename: exportName("pdf"),
       image: { type: "jpeg", quality: 0.95 },
-      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#FFFFFF" },
+      // 화면을 아래로 내린 상태여도 맨 위부터 찍도록 함 (안 하면 앞쪽이 빈 쪽이 되고 끝이 잘림)
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#FFFFFF", scrollX: 0, scrollY: 0 },
       jsPDF: { unit: "mm", format: "a4" },
       pagebreak: { mode: ["css", "legacy"], avoid: [".r-list li", ".cmt", ".r-head", ".r-bar"] }
     }).from(paper).save();
