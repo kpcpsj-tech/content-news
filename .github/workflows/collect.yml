@@ -1,10 +1,11 @@
-# 약 30분마다 Bing 뉴스에서 새 기사를 모아 articles.json을 바꿔 둡니다.
-# GitHub 사정에 따라 몇 분 늦게 돌 수 있습니다. "Actions" 탭에서 "Run workflow"로 바로 돌릴 수도 있습니다.
+# 매시 7분·37분(약 30분마다) Bing 뉴스에서 새 기사를 모아 articles.json을 바꿔 둡니다.
+# 정각·30분은 GitHub 예약이 몰려 늦어지거나 빠질 수 있어 피했습니다. GitHub 사정에 따라 몇 분 늦게 돌 수 있습니다.
+# "Actions" 탭에서 "Run workflow"로 바로 돌릴 수도 있습니다.
 name: 기사 수집
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 
 permissions:
