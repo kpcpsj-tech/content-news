@@ -478,10 +478,11 @@ async function showComments(e) {
     if (!video) throw new Error(ytMessage(404, "videoNotFound", ""));
     const threads = await yt("commentThreads", { part: "snippet", videoId: id, order: "relevance", maxResults: 50, textFormat: "plainText" });
     if (mine !== ytRequest) return;
-    const items = threads.items || [];
+    // 유튜브 인기 댓글 50개를 좋아요 많은 순으로 다시 정렬
+    const items = (threads.items || []).sort((a, b) => b.snippet.topLevelComment.snippet.likeCount - a.snippet.topLevelComment.snippet.likeCount);
     const title = `<h2 class="video"><a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer">${esc(video.snippet.title)}</a></h2>`;
     if (!items.length) return ytShow(title + `<div class="msg">아직 댓글이 없는 영상이에요.</div>`);
-    ytShow(title + `<p class="note" style="margin:0">${esc(video.snippet.channelTitle)} · 인기 댓글 ${items.length}개</p>
+    ytShow(title + `<p class="note" style="margin:0">${esc(video.snippet.channelTitle)} · 인기 댓글 ${items.length}개 · 좋아요 많은 순</p>
       <ol class="cmts">${items.map((it) => {
         const c = it.snippet.topLevelComment.snippet;
         return `<li class="cmt">
